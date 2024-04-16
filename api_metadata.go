@@ -24,7 +24,7 @@ var (
 	_ context.Context
 )
 
-type MetadataAPI interface {
+type MetadataApi interface {
 
 	/*
 			 * GetVersion Return Running Software Version.
@@ -36,15 +36,15 @@ type MetadataAPI interface {
 		Be aware that if you are running multiple nodes of this service, the version will never
 		refer to the cluster state, only to a single instance.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @return MetadataAPIApiGetVersionRequest
+			 * @return MetadataApiApiGetVersionRequest
 	*/
-	GetVersion(ctx context.Context) MetadataAPIApiGetVersionRequest
+	GetVersion(ctx context.Context) MetadataApiApiGetVersionRequest
 
 	/*
 	 * GetVersionExecute executes the request
 	 * @return GetVersion200Response
 	 */
-	GetVersionExecute(r MetadataAPIApiGetVersionRequest) (*GetVersion200Response, *http.Response, error)
+	GetVersionExecute(r MetadataApiApiGetVersionRequest) (*GetVersion200Response, *http.Response, error)
 
 	/*
 			 * IsAlive Check HTTP Server Status
@@ -57,15 +57,15 @@ type MetadataAPI interface {
 		Be aware that if you are running multiple nodes of this service, the health status will never
 		refer to the cluster state, only to a single instance.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @return MetadataAPIApiIsAliveRequest
+			 * @return MetadataApiApiIsAliveRequest
 	*/
-	IsAlive(ctx context.Context) MetadataAPIApiIsAliveRequest
+	IsAlive(ctx context.Context) MetadataApiApiIsAliveRequest
 
 	/*
 	 * IsAliveExecute executes the request
 	 * @return IsAlive200Response
 	 */
-	IsAliveExecute(r MetadataAPIApiIsAliveRequest) (*IsAlive200Response, *http.Response, error)
+	IsAliveExecute(r MetadataApiApiIsAliveRequest) (*IsAlive200Response, *http.Response, error)
 
 	/*
 			 * IsReady Check HTTP Server and Database Status
@@ -78,26 +78,26 @@ type MetadataAPI interface {
 		Be aware that if you are running multiple nodes of Ory Kratos, the health status will never
 		refer to the cluster state, only to a single instance.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @return MetadataAPIApiIsReadyRequest
+			 * @return MetadataApiApiIsReadyRequest
 	*/
-	IsReady(ctx context.Context) MetadataAPIApiIsReadyRequest
+	IsReady(ctx context.Context) MetadataApiApiIsReadyRequest
 
 	/*
 	 * IsReadyExecute executes the request
 	 * @return IsAlive200Response
 	 */
-	IsReadyExecute(r MetadataAPIApiIsReadyRequest) (*IsAlive200Response, *http.Response, error)
+	IsReadyExecute(r MetadataApiApiIsReadyRequest) (*IsAlive200Response, *http.Response, error)
 }
 
-// MetadataAPIService MetadataAPI service
-type MetadataAPIService service
+// MetadataApiService MetadataApi service
+type MetadataApiService service
 
-type MetadataAPIApiGetVersionRequest struct {
+type MetadataApiApiGetVersionRequest struct {
 	ctx        context.Context
-	ApiService MetadataAPI
+	ApiService MetadataApi
 }
 
-func (r MetadataAPIApiGetVersionRequest) Execute() (*GetVersion200Response, *http.Response, error) {
+func (r MetadataApiApiGetVersionRequest) Execute() (*GetVersion200Response, *http.Response, error) {
 	return r.ApiService.GetVersionExecute(r)
 }
 
@@ -111,10 +111,10 @@ If the service supports TLS Edge Termination, this endpoint does not require the
 Be aware that if you are running multiple nodes of this service, the version will never
 refer to the cluster state, only to a single instance.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @return MetadataAPIApiGetVersionRequest
+  - @return MetadataApiApiGetVersionRequest
 */
-func (a *MetadataAPIService) GetVersion(ctx context.Context) MetadataAPIApiGetVersionRequest {
-	return MetadataAPIApiGetVersionRequest{
+func (a *MetadataApiService) GetVersion(ctx context.Context) MetadataApiApiGetVersionRequest {
+	return MetadataApiApiGetVersionRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -124,7 +124,7 @@ func (a *MetadataAPIService) GetVersion(ctx context.Context) MetadataAPIApiGetVe
  * Execute executes the request
  * @return GetVersion200Response
  */
-func (a *MetadataAPIService) GetVersionExecute(r MetadataAPIApiGetVersionRequest) (*GetVersion200Response, *http.Response, error) {
+func (a *MetadataApiService) GetVersionExecute(r MetadataApiApiGetVersionRequest) (*GetVersion200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -134,7 +134,7 @@ func (a *MetadataAPIService) GetVersionExecute(r MetadataAPIApiGetVersionRequest
 		localVarReturnValue  *GetVersion200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataAPIService.GetVersion")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataApiService.GetVersion")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -199,12 +199,12 @@ func (a *MetadataAPIService) GetVersionExecute(r MetadataAPIApiGetVersionRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MetadataAPIApiIsAliveRequest struct {
+type MetadataApiApiIsAliveRequest struct {
 	ctx        context.Context
-	ApiService MetadataAPI
+	ApiService MetadataApi
 }
 
-func (r MetadataAPIApiIsAliveRequest) Execute() (*IsAlive200Response, *http.Response, error) {
+func (r MetadataApiApiIsAliveRequest) Execute() (*IsAlive200Response, *http.Response, error) {
 	return r.ApiService.IsAliveExecute(r)
 }
 
@@ -220,10 +220,10 @@ If the service supports TLS Edge Termination, this endpoint does not require the
 Be aware that if you are running multiple nodes of this service, the health status will never
 refer to the cluster state, only to a single instance.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @return MetadataAPIApiIsAliveRequest
+  - @return MetadataApiApiIsAliveRequest
 */
-func (a *MetadataAPIService) IsAlive(ctx context.Context) MetadataAPIApiIsAliveRequest {
-	return MetadataAPIApiIsAliveRequest{
+func (a *MetadataApiService) IsAlive(ctx context.Context) MetadataApiApiIsAliveRequest {
+	return MetadataApiApiIsAliveRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -233,7 +233,7 @@ func (a *MetadataAPIService) IsAlive(ctx context.Context) MetadataAPIApiIsAliveR
  * Execute executes the request
  * @return IsAlive200Response
  */
-func (a *MetadataAPIService) IsAliveExecute(r MetadataAPIApiIsAliveRequest) (*IsAlive200Response, *http.Response, error) {
+func (a *MetadataApiService) IsAliveExecute(r MetadataApiApiIsAliveRequest) (*IsAlive200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -243,7 +243,7 @@ func (a *MetadataAPIService) IsAliveExecute(r MetadataAPIApiIsAliveRequest) (*Is
 		localVarReturnValue  *IsAlive200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataAPIService.IsAlive")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataApiService.IsAlive")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -315,12 +315,12 @@ func (a *MetadataAPIService) IsAliveExecute(r MetadataAPIApiIsAliveRequest) (*Is
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type MetadataAPIApiIsReadyRequest struct {
+type MetadataApiApiIsReadyRequest struct {
 	ctx        context.Context
-	ApiService MetadataAPI
+	ApiService MetadataApi
 }
 
-func (r MetadataAPIApiIsReadyRequest) Execute() (*IsAlive200Response, *http.Response, error) {
+func (r MetadataApiApiIsReadyRequest) Execute() (*IsAlive200Response, *http.Response, error) {
 	return r.ApiService.IsReadyExecute(r)
 }
 
@@ -336,10 +336,10 @@ If the service supports TLS Edge Termination, this endpoint does not require the
 Be aware that if you are running multiple nodes of Ory Kratos, the health status will never
 refer to the cluster state, only to a single instance.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @return MetadataAPIApiIsReadyRequest
+  - @return MetadataApiApiIsReadyRequest
 */
-func (a *MetadataAPIService) IsReady(ctx context.Context) MetadataAPIApiIsReadyRequest {
-	return MetadataAPIApiIsReadyRequest{
+func (a *MetadataApiService) IsReady(ctx context.Context) MetadataApiApiIsReadyRequest {
+	return MetadataApiApiIsReadyRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -349,7 +349,7 @@ func (a *MetadataAPIService) IsReady(ctx context.Context) MetadataAPIApiIsReadyR
  * Execute executes the request
  * @return IsAlive200Response
  */
-func (a *MetadataAPIService) IsReadyExecute(r MetadataAPIApiIsReadyRequest) (*IsAlive200Response, *http.Response, error) {
+func (a *MetadataApiService) IsReadyExecute(r MetadataApiApiIsReadyRequest) (*IsAlive200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -359,7 +359,7 @@ func (a *MetadataAPIService) IsReadyExecute(r MetadataAPIApiIsReadyRequest) (*Is
 		localVarReturnValue  *IsAlive200Response
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataAPIService.IsReady")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataApiService.IsReady")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

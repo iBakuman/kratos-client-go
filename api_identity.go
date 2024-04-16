@@ -26,7 +26,7 @@ var (
 	_ context.Context
 )
 
-type IdentityAPI interface {
+type IdentityApi interface {
 
 	/*
 			 * BatchPatchIdentities Create and deletes multiple identities
@@ -36,15 +36,15 @@ type IdentityAPI interface {
 		credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities)
 		for instance passwords, social sign in configurations or multifactor methods.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @return IdentityAPIApiBatchPatchIdentitiesRequest
+			 * @return IdentityApiApiBatchPatchIdentitiesRequest
 	*/
-	BatchPatchIdentities(ctx context.Context) IdentityAPIApiBatchPatchIdentitiesRequest
+	BatchPatchIdentities(ctx context.Context) IdentityApiApiBatchPatchIdentitiesRequest
 
 	/*
 	 * BatchPatchIdentitiesExecute executes the request
 	 * @return BatchPatchIdentitiesResponse
 	 */
-	BatchPatchIdentitiesExecute(r IdentityAPIApiBatchPatchIdentitiesRequest) (*BatchPatchIdentitiesResponse, *http.Response, error)
+	BatchPatchIdentitiesExecute(r IdentityApiApiBatchPatchIdentitiesRequest) (*BatchPatchIdentitiesResponse, *http.Response, error)
 
 	/*
 			 * CreateIdentity Create an Identity
@@ -52,45 +52,45 @@ type IdentityAPI interface {
 		[import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities)
 		for instance passwords, social sign in configurations or multifactor methods.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @return IdentityAPIApiCreateIdentityRequest
+			 * @return IdentityApiApiCreateIdentityRequest
 	*/
-	CreateIdentity(ctx context.Context) IdentityAPIApiCreateIdentityRequest
+	CreateIdentity(ctx context.Context) IdentityApiApiCreateIdentityRequest
 
 	/*
 	 * CreateIdentityExecute executes the request
 	 * @return Identity
 	 */
-	CreateIdentityExecute(r IdentityAPIApiCreateIdentityRequest) (*Identity, *http.Response, error)
+	CreateIdentityExecute(r IdentityApiApiCreateIdentityRequest) (*Identity, *http.Response, error)
 
 	/*
 			 * CreateRecoveryCodeForIdentity Create a Recovery Code
 			 * This endpoint creates a recovery code which should be given to the user in order for them to recover
 		(or activate) their account.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @return IdentityAPIApiCreateRecoveryCodeForIdentityRequest
+			 * @return IdentityApiApiCreateRecoveryCodeForIdentityRequest
 	*/
-	CreateRecoveryCodeForIdentity(ctx context.Context) IdentityAPIApiCreateRecoveryCodeForIdentityRequest
+	CreateRecoveryCodeForIdentity(ctx context.Context) IdentityApiApiCreateRecoveryCodeForIdentityRequest
 
 	/*
 	 * CreateRecoveryCodeForIdentityExecute executes the request
 	 * @return RecoveryCodeForIdentity
 	 */
-	CreateRecoveryCodeForIdentityExecute(r IdentityAPIApiCreateRecoveryCodeForIdentityRequest) (*RecoveryCodeForIdentity, *http.Response, error)
+	CreateRecoveryCodeForIdentityExecute(r IdentityApiApiCreateRecoveryCodeForIdentityRequest) (*RecoveryCodeForIdentity, *http.Response, error)
 
 	/*
 			 * CreateRecoveryLinkForIdentity Create a Recovery Link
 			 * This endpoint creates a recovery link which should be given to the user in order for them to recover
 		(or activate) their account.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-			 * @return IdentityAPIApiCreateRecoveryLinkForIdentityRequest
+			 * @return IdentityApiApiCreateRecoveryLinkForIdentityRequest
 	*/
-	CreateRecoveryLinkForIdentity(ctx context.Context) IdentityAPIApiCreateRecoveryLinkForIdentityRequest
+	CreateRecoveryLinkForIdentity(ctx context.Context) IdentityApiApiCreateRecoveryLinkForIdentityRequest
 
 	/*
 	 * CreateRecoveryLinkForIdentityExecute executes the request
 	 * @return RecoveryLinkForIdentity
 	 */
-	CreateRecoveryLinkForIdentityExecute(r IdentityAPIApiCreateRecoveryLinkForIdentityRequest) (*RecoveryLinkForIdentity, *http.Response, error)
+	CreateRecoveryLinkForIdentityExecute(r IdentityApiApiCreateRecoveryLinkForIdentityRequest) (*RecoveryLinkForIdentity, *http.Response, error)
 
 	/*
 			 * DeleteIdentity Delete an Identity
@@ -99,14 +99,14 @@ type IdentityAPI interface {
 		assumed that is has been deleted already.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			 * @param id ID is the identity's ID.
-			 * @return IdentityAPIApiDeleteIdentityRequest
+			 * @return IdentityApiApiDeleteIdentityRequest
 	*/
-	DeleteIdentity(ctx context.Context, id string) IdentityAPIApiDeleteIdentityRequest
+	DeleteIdentity(ctx context.Context, id string) IdentityApiApiDeleteIdentityRequest
 
 	/*
 	 * DeleteIdentityExecute executes the request
 	 */
-	DeleteIdentityExecute(r IdentityAPIApiDeleteIdentityRequest) (*http.Response, error)
+	DeleteIdentityExecute(r IdentityApiApiDeleteIdentityRequest) (*http.Response, error)
 
 	/*
 			 * DeleteIdentityCredentials Delete a credential for a specific identity
@@ -115,42 +115,42 @@ type IdentityAPI interface {
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			 * @param id ID is the identity's ID.
 			 * @param type_ Type is the type of credentials to be deleted. password CredentialsTypePassword oidc CredentialsTypeOIDC totp CredentialsTypeTOTP lookup_secret CredentialsTypeLookup webauthn CredentialsTypeWebAuthn code CredentialsTypeCodeAuth passkey CredentialsTypePasskey profile CredentialsTypeProfile link_recovery CredentialsTypeRecoveryLink  CredentialsTypeRecoveryLink is a special credential type linked to the link strategy (recovery flow).  It is not used within the credentials object itself. code_recovery CredentialsTypeRecoveryCode
-			 * @return IdentityAPIApiDeleteIdentityCredentialsRequest
+			 * @return IdentityApiApiDeleteIdentityCredentialsRequest
 	*/
-	DeleteIdentityCredentials(ctx context.Context, id string, type_ string) IdentityAPIApiDeleteIdentityCredentialsRequest
+	DeleteIdentityCredentials(ctx context.Context, id string, type_ string) IdentityApiApiDeleteIdentityCredentialsRequest
 
 	/*
 	 * DeleteIdentityCredentialsExecute executes the request
 	 */
-	DeleteIdentityCredentialsExecute(r IdentityAPIApiDeleteIdentityCredentialsRequest) (*http.Response, error)
+	DeleteIdentityCredentialsExecute(r IdentityApiApiDeleteIdentityCredentialsRequest) (*http.Response, error)
 
 	/*
 	 * DeleteIdentitySessions Delete & Invalidate an Identity's Sessions
 	 * Calling this endpoint irrecoverably and permanently deletes and invalidates all sessions that belong to the given Identity.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id ID is the identity's ID.
-	 * @return IdentityAPIApiDeleteIdentitySessionsRequest
+	 * @return IdentityApiApiDeleteIdentitySessionsRequest
 	 */
-	DeleteIdentitySessions(ctx context.Context, id string) IdentityAPIApiDeleteIdentitySessionsRequest
+	DeleteIdentitySessions(ctx context.Context, id string) IdentityApiApiDeleteIdentitySessionsRequest
 
 	/*
 	 * DeleteIdentitySessionsExecute executes the request
 	 */
-	DeleteIdentitySessionsExecute(r IdentityAPIApiDeleteIdentitySessionsRequest) (*http.Response, error)
+	DeleteIdentitySessionsExecute(r IdentityApiApiDeleteIdentitySessionsRequest) (*http.Response, error)
 
 	/*
 	 * DisableSession Deactivate a Session
 	 * Calling this endpoint deactivates the specified session. Session data is not deleted.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id ID is the session's ID.
-	 * @return IdentityAPIApiDisableSessionRequest
+	 * @return IdentityApiApiDisableSessionRequest
 	 */
-	DisableSession(ctx context.Context, id string) IdentityAPIApiDisableSessionRequest
+	DisableSession(ctx context.Context, id string) IdentityApiApiDisableSessionRequest
 
 	/*
 	 * DisableSessionExecute executes the request
 	 */
-	DisableSessionExecute(r IdentityAPIApiDisableSessionRequest) (*http.Response, error)
+	DisableSessionExecute(r IdentityApiApiDisableSessionRequest) (*http.Response, error)
 
 	/*
 			 * ExtendSession Extend a Session
@@ -160,15 +160,15 @@ type IdentityAPI interface {
 		Retrieve the session ID from the `/sessions/whoami` endpoint / `toSession` SDK method.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			 * @param id ID is the session's ID.
-			 * @return IdentityAPIApiExtendSessionRequest
+			 * @return IdentityApiApiExtendSessionRequest
 	*/
-	ExtendSession(ctx context.Context, id string) IdentityAPIApiExtendSessionRequest
+	ExtendSession(ctx context.Context, id string) IdentityApiApiExtendSessionRequest
 
 	/*
 	 * ExtendSessionExecute executes the request
 	 * @return Session
 	 */
-	ExtendSessionExecute(r IdentityAPIApiExtendSessionRequest) (*Session, *http.Response, error)
+	ExtendSessionExecute(r IdentityApiApiExtendSessionRequest) (*Session, *http.Response, error)
 
 	/*
 			 * GetIdentity Get an Identity
@@ -176,30 +176,30 @@ type IdentityAPI interface {
 		include credentials (e.g. social sign in connections) in the response by using the `include_credential` query parameter.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			 * @param id ID must be set to the ID of identity you want to get
-			 * @return IdentityAPIApiGetIdentityRequest
+			 * @return IdentityApiApiGetIdentityRequest
 	*/
-	GetIdentity(ctx context.Context, id string) IdentityAPIApiGetIdentityRequest
+	GetIdentity(ctx context.Context, id string) IdentityApiApiGetIdentityRequest
 
 	/*
 	 * GetIdentityExecute executes the request
 	 * @return Identity
 	 */
-	GetIdentityExecute(r IdentityAPIApiGetIdentityRequest) (*Identity, *http.Response, error)
+	GetIdentityExecute(r IdentityApiApiGetIdentityRequest) (*Identity, *http.Response, error)
 
 	/*
 	 * GetIdentitySchema Get Identity JSON Schema
 	 * Return a specific identity schema.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id ID must be set to the ID of schema you want to get
-	 * @return IdentityAPIApiGetIdentitySchemaRequest
+	 * @return IdentityApiApiGetIdentitySchemaRequest
 	 */
-	GetIdentitySchema(ctx context.Context, id string) IdentityAPIApiGetIdentitySchemaRequest
+	GetIdentitySchema(ctx context.Context, id string) IdentityApiApiGetIdentitySchemaRequest
 
 	/*
 	 * GetIdentitySchemaExecute executes the request
 	 * @return map[string]interface{}
 	 */
-	GetIdentitySchemaExecute(r IdentityAPIApiGetIdentitySchemaRequest) (map[string]interface{}, *http.Response, error)
+	GetIdentitySchemaExecute(r IdentityApiApiGetIdentitySchemaRequest) (map[string]interface{}, *http.Response, error)
 
 	/*
 			 * GetSession Get Session
@@ -208,72 +208,72 @@ type IdentityAPI interface {
 		Getting a session object with all specified expandables that exist in an administrative context.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			 * @param id ID is the session's ID.
-			 * @return IdentityAPIApiGetSessionRequest
+			 * @return IdentityApiApiGetSessionRequest
 	*/
-	GetSession(ctx context.Context, id string) IdentityAPIApiGetSessionRequest
+	GetSession(ctx context.Context, id string) IdentityApiApiGetSessionRequest
 
 	/*
 	 * GetSessionExecute executes the request
 	 * @return Session
 	 */
-	GetSessionExecute(r IdentityAPIApiGetSessionRequest) (*Session, *http.Response, error)
+	GetSessionExecute(r IdentityApiApiGetSessionRequest) (*Session, *http.Response, error)
 
 	/*
 	 * ListIdentities List Identities
 	 * Lists all [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model) in the system.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return IdentityAPIApiListIdentitiesRequest
+	 * @return IdentityApiApiListIdentitiesRequest
 	 */
-	ListIdentities(ctx context.Context) IdentityAPIApiListIdentitiesRequest
+	ListIdentities(ctx context.Context) IdentityApiApiListIdentitiesRequest
 
 	/*
 	 * ListIdentitiesExecute executes the request
 	 * @return []Identity
 	 */
-	ListIdentitiesExecute(r IdentityAPIApiListIdentitiesRequest) ([]Identity, *http.Response, error)
+	ListIdentitiesExecute(r IdentityApiApiListIdentitiesRequest) ([]Identity, *http.Response, error)
 
 	/*
 	 * ListIdentitySchemas Get all Identity Schemas
 	 * Returns a list of all identity schemas currently in use.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return IdentityAPIApiListIdentitySchemasRequest
+	 * @return IdentityApiApiListIdentitySchemasRequest
 	 */
-	ListIdentitySchemas(ctx context.Context) IdentityAPIApiListIdentitySchemasRequest
+	ListIdentitySchemas(ctx context.Context) IdentityApiApiListIdentitySchemasRequest
 
 	/*
 	 * ListIdentitySchemasExecute executes the request
 	 * @return []IdentitySchemaContainer
 	 */
-	ListIdentitySchemasExecute(r IdentityAPIApiListIdentitySchemasRequest) ([]IdentitySchemaContainer, *http.Response, error)
+	ListIdentitySchemasExecute(r IdentityApiApiListIdentitySchemasRequest) ([]IdentitySchemaContainer, *http.Response, error)
 
 	/*
 	 * ListIdentitySessions List an Identity's Sessions
 	 * This endpoint returns all sessions that belong to the given Identity.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id ID is the identity's ID.
-	 * @return IdentityAPIApiListIdentitySessionsRequest
+	 * @return IdentityApiApiListIdentitySessionsRequest
 	 */
-	ListIdentitySessions(ctx context.Context, id string) IdentityAPIApiListIdentitySessionsRequest
+	ListIdentitySessions(ctx context.Context, id string) IdentityApiApiListIdentitySessionsRequest
 
 	/*
 	 * ListIdentitySessionsExecute executes the request
 	 * @return []Session
 	 */
-	ListIdentitySessionsExecute(r IdentityAPIApiListIdentitySessionsRequest) ([]Session, *http.Response, error)
+	ListIdentitySessionsExecute(r IdentityApiApiListIdentitySessionsRequest) ([]Session, *http.Response, error)
 
 	/*
 	 * ListSessions List All Sessions
 	 * Listing all sessions that exist.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return IdentityAPIApiListSessionsRequest
+	 * @return IdentityApiApiListSessionsRequest
 	 */
-	ListSessions(ctx context.Context) IdentityAPIApiListSessionsRequest
+	ListSessions(ctx context.Context) IdentityApiApiListSessionsRequest
 
 	/*
 	 * ListSessionsExecute executes the request
 	 * @return []Session
 	 */
-	ListSessionsExecute(r IdentityAPIApiListSessionsRequest) ([]Session, *http.Response, error)
+	ListSessionsExecute(r IdentityApiApiListSessionsRequest) ([]Session, *http.Response, error)
 
 	/*
 			 * PatchIdentity Patch an Identity
@@ -281,15 +281,15 @@ type IdentityAPI interface {
 		The fields `id`, `stateChangedAt` and `credentials` can not be updated using this method.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			 * @param id ID must be set to the ID of identity you want to update
-			 * @return IdentityAPIApiPatchIdentityRequest
+			 * @return IdentityApiApiPatchIdentityRequest
 	*/
-	PatchIdentity(ctx context.Context, id string) IdentityAPIApiPatchIdentityRequest
+	PatchIdentity(ctx context.Context, id string) IdentityApiApiPatchIdentityRequest
 
 	/*
 	 * PatchIdentityExecute executes the request
 	 * @return Identity
 	 */
-	PatchIdentityExecute(r IdentityAPIApiPatchIdentityRequest) (*Identity, *http.Response, error)
+	PatchIdentityExecute(r IdentityApiApiPatchIdentityRequest) (*Identity, *http.Response, error)
 
 	/*
 			 * UpdateIdentity Update an Identity
@@ -297,32 +297,32 @@ type IdentityAPI interface {
 		payload (except credentials) is expected. It is possible to update the identity's credentials as well.
 			 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 			 * @param id ID must be set to the ID of identity you want to update
-			 * @return IdentityAPIApiUpdateIdentityRequest
+			 * @return IdentityApiApiUpdateIdentityRequest
 	*/
-	UpdateIdentity(ctx context.Context, id string) IdentityAPIApiUpdateIdentityRequest
+	UpdateIdentity(ctx context.Context, id string) IdentityApiApiUpdateIdentityRequest
 
 	/*
 	 * UpdateIdentityExecute executes the request
 	 * @return Identity
 	 */
-	UpdateIdentityExecute(r IdentityAPIApiUpdateIdentityRequest) (*Identity, *http.Response, error)
+	UpdateIdentityExecute(r IdentityApiApiUpdateIdentityRequest) (*Identity, *http.Response, error)
 }
 
-// IdentityAPIService IdentityAPI service
-type IdentityAPIService service
+// IdentityApiService IdentityApi service
+type IdentityApiService service
 
-type IdentityAPIApiBatchPatchIdentitiesRequest struct {
+type IdentityApiApiBatchPatchIdentitiesRequest struct {
 	ctx                 context.Context
-	ApiService          IdentityAPI
+	ApiService          IdentityApi
 	patchIdentitiesBody *PatchIdentitiesBody
 }
 
-func (r IdentityAPIApiBatchPatchIdentitiesRequest) PatchIdentitiesBody(patchIdentitiesBody PatchIdentitiesBody) IdentityAPIApiBatchPatchIdentitiesRequest {
+func (r IdentityApiApiBatchPatchIdentitiesRequest) PatchIdentitiesBody(patchIdentitiesBody PatchIdentitiesBody) IdentityApiApiBatchPatchIdentitiesRequest {
 	r.patchIdentitiesBody = &patchIdentitiesBody
 	return r
 }
 
-func (r IdentityAPIApiBatchPatchIdentitiesRequest) Execute() (*BatchPatchIdentitiesResponse, *http.Response, error) {
+func (r IdentityApiApiBatchPatchIdentitiesRequest) Execute() (*BatchPatchIdentitiesResponse, *http.Response, error) {
 	return r.ApiService.BatchPatchIdentitiesExecute(r)
 }
 
@@ -335,10 +335,10 @@ This endpoint can also be used to [import
 credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities)
 for instance passwords, social sign in configurations or multifactor methods.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @return IdentityAPIApiBatchPatchIdentitiesRequest
+  - @return IdentityApiApiBatchPatchIdentitiesRequest
 */
-func (a *IdentityAPIService) BatchPatchIdentities(ctx context.Context) IdentityAPIApiBatchPatchIdentitiesRequest {
-	return IdentityAPIApiBatchPatchIdentitiesRequest{
+func (a *IdentityApiService) BatchPatchIdentities(ctx context.Context) IdentityApiApiBatchPatchIdentitiesRequest {
+	return IdentityApiApiBatchPatchIdentitiesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -348,7 +348,7 @@ func (a *IdentityAPIService) BatchPatchIdentities(ctx context.Context) IdentityA
  * Execute executes the request
  * @return BatchPatchIdentitiesResponse
  */
-func (a *IdentityAPIService) BatchPatchIdentitiesExecute(r IdentityAPIApiBatchPatchIdentitiesRequest) (*BatchPatchIdentitiesResponse, *http.Response, error) {
+func (a *IdentityApiService) BatchPatchIdentitiesExecute(r IdentityApiApiBatchPatchIdentitiesRequest) (*BatchPatchIdentitiesResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -358,7 +358,7 @@ func (a *IdentityAPIService) BatchPatchIdentitiesExecute(r IdentityAPIApiBatchPa
 		localVarReturnValue  *BatchPatchIdentitiesResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.BatchPatchIdentities")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.BatchPatchIdentities")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -466,18 +466,18 @@ func (a *IdentityAPIService) BatchPatchIdentitiesExecute(r IdentityAPIApiBatchPa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiCreateIdentityRequest struct {
+type IdentityApiApiCreateIdentityRequest struct {
 	ctx                context.Context
-	ApiService         IdentityAPI
+	ApiService         IdentityApi
 	createIdentityBody *CreateIdentityBody
 }
 
-func (r IdentityAPIApiCreateIdentityRequest) CreateIdentityBody(createIdentityBody CreateIdentityBody) IdentityAPIApiCreateIdentityRequest {
+func (r IdentityApiApiCreateIdentityRequest) CreateIdentityBody(createIdentityBody CreateIdentityBody) IdentityApiApiCreateIdentityRequest {
 	r.createIdentityBody = &createIdentityBody
 	return r
 }
 
-func (r IdentityAPIApiCreateIdentityRequest) Execute() (*Identity, *http.Response, error) {
+func (r IdentityApiApiCreateIdentityRequest) Execute() (*Identity, *http.Response, error) {
 	return r.ApiService.CreateIdentityExecute(r)
 }
 
@@ -488,10 +488,10 @@ func (r IdentityAPIApiCreateIdentityRequest) Execute() (*Identity, *http.Respons
 [import credentials](https://www.ory.sh/docs/kratos/manage-identities/import-user-accounts-identities)
 for instance passwords, social sign in configurations or multifactor methods.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @return IdentityAPIApiCreateIdentityRequest
+  - @return IdentityApiApiCreateIdentityRequest
 */
-func (a *IdentityAPIService) CreateIdentity(ctx context.Context) IdentityAPIApiCreateIdentityRequest {
-	return IdentityAPIApiCreateIdentityRequest{
+func (a *IdentityApiService) CreateIdentity(ctx context.Context) IdentityApiApiCreateIdentityRequest {
+	return IdentityApiApiCreateIdentityRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -501,7 +501,7 @@ func (a *IdentityAPIService) CreateIdentity(ctx context.Context) IdentityAPIApiC
  * Execute executes the request
  * @return Identity
  */
-func (a *IdentityAPIService) CreateIdentityExecute(r IdentityAPIApiCreateIdentityRequest) (*Identity, *http.Response, error) {
+func (a *IdentityApiService) CreateIdentityExecute(r IdentityApiApiCreateIdentityRequest) (*Identity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -511,7 +511,7 @@ func (a *IdentityAPIService) CreateIdentityExecute(r IdentityAPIApiCreateIdentit
 		localVarReturnValue  *Identity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.CreateIdentity")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.CreateIdentity")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -619,18 +619,18 @@ func (a *IdentityAPIService) CreateIdentityExecute(r IdentityAPIApiCreateIdentit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiCreateRecoveryCodeForIdentityRequest struct {
+type IdentityApiApiCreateRecoveryCodeForIdentityRequest struct {
 	ctx                               context.Context
-	ApiService                        IdentityAPI
+	ApiService                        IdentityApi
 	createRecoveryCodeForIdentityBody *CreateRecoveryCodeForIdentityBody
 }
 
-func (r IdentityAPIApiCreateRecoveryCodeForIdentityRequest) CreateRecoveryCodeForIdentityBody(createRecoveryCodeForIdentityBody CreateRecoveryCodeForIdentityBody) IdentityAPIApiCreateRecoveryCodeForIdentityRequest {
+func (r IdentityApiApiCreateRecoveryCodeForIdentityRequest) CreateRecoveryCodeForIdentityBody(createRecoveryCodeForIdentityBody CreateRecoveryCodeForIdentityBody) IdentityApiApiCreateRecoveryCodeForIdentityRequest {
 	r.createRecoveryCodeForIdentityBody = &createRecoveryCodeForIdentityBody
 	return r
 }
 
-func (r IdentityAPIApiCreateRecoveryCodeForIdentityRequest) Execute() (*RecoveryCodeForIdentity, *http.Response, error) {
+func (r IdentityApiApiCreateRecoveryCodeForIdentityRequest) Execute() (*RecoveryCodeForIdentity, *http.Response, error) {
 	return r.ApiService.CreateRecoveryCodeForIdentityExecute(r)
 }
 
@@ -640,10 +640,10 @@ func (r IdentityAPIApiCreateRecoveryCodeForIdentityRequest) Execute() (*Recovery
 
 (or activate) their account.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @return IdentityAPIApiCreateRecoveryCodeForIdentityRequest
+  - @return IdentityApiApiCreateRecoveryCodeForIdentityRequest
 */
-func (a *IdentityAPIService) CreateRecoveryCodeForIdentity(ctx context.Context) IdentityAPIApiCreateRecoveryCodeForIdentityRequest {
-	return IdentityAPIApiCreateRecoveryCodeForIdentityRequest{
+func (a *IdentityApiService) CreateRecoveryCodeForIdentity(ctx context.Context) IdentityApiApiCreateRecoveryCodeForIdentityRequest {
+	return IdentityApiApiCreateRecoveryCodeForIdentityRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -653,7 +653,7 @@ func (a *IdentityAPIService) CreateRecoveryCodeForIdentity(ctx context.Context) 
  * Execute executes the request
  * @return RecoveryCodeForIdentity
  */
-func (a *IdentityAPIService) CreateRecoveryCodeForIdentityExecute(r IdentityAPIApiCreateRecoveryCodeForIdentityRequest) (*RecoveryCodeForIdentity, *http.Response, error) {
+func (a *IdentityApiService) CreateRecoveryCodeForIdentityExecute(r IdentityApiApiCreateRecoveryCodeForIdentityRequest) (*RecoveryCodeForIdentity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -663,7 +663,7 @@ func (a *IdentityAPIService) CreateRecoveryCodeForIdentityExecute(r IdentityAPIA
 		localVarReturnValue  *RecoveryCodeForIdentity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.CreateRecoveryCodeForIdentity")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.CreateRecoveryCodeForIdentity")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -771,23 +771,23 @@ func (a *IdentityAPIService) CreateRecoveryCodeForIdentityExecute(r IdentityAPIA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiCreateRecoveryLinkForIdentityRequest struct {
+type IdentityApiApiCreateRecoveryLinkForIdentityRequest struct {
 	ctx                               context.Context
-	ApiService                        IdentityAPI
+	ApiService                        IdentityApi
 	returnTo                          *string
 	createRecoveryLinkForIdentityBody *CreateRecoveryLinkForIdentityBody
 }
 
-func (r IdentityAPIApiCreateRecoveryLinkForIdentityRequest) ReturnTo(returnTo string) IdentityAPIApiCreateRecoveryLinkForIdentityRequest {
+func (r IdentityApiApiCreateRecoveryLinkForIdentityRequest) ReturnTo(returnTo string) IdentityApiApiCreateRecoveryLinkForIdentityRequest {
 	r.returnTo = &returnTo
 	return r
 }
-func (r IdentityAPIApiCreateRecoveryLinkForIdentityRequest) CreateRecoveryLinkForIdentityBody(createRecoveryLinkForIdentityBody CreateRecoveryLinkForIdentityBody) IdentityAPIApiCreateRecoveryLinkForIdentityRequest {
+func (r IdentityApiApiCreateRecoveryLinkForIdentityRequest) CreateRecoveryLinkForIdentityBody(createRecoveryLinkForIdentityBody CreateRecoveryLinkForIdentityBody) IdentityApiApiCreateRecoveryLinkForIdentityRequest {
 	r.createRecoveryLinkForIdentityBody = &createRecoveryLinkForIdentityBody
 	return r
 }
 
-func (r IdentityAPIApiCreateRecoveryLinkForIdentityRequest) Execute() (*RecoveryLinkForIdentity, *http.Response, error) {
+func (r IdentityApiApiCreateRecoveryLinkForIdentityRequest) Execute() (*RecoveryLinkForIdentity, *http.Response, error) {
 	return r.ApiService.CreateRecoveryLinkForIdentityExecute(r)
 }
 
@@ -797,10 +797,10 @@ func (r IdentityAPIApiCreateRecoveryLinkForIdentityRequest) Execute() (*Recovery
 
 (or activate) their account.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-  - @return IdentityAPIApiCreateRecoveryLinkForIdentityRequest
+  - @return IdentityApiApiCreateRecoveryLinkForIdentityRequest
 */
-func (a *IdentityAPIService) CreateRecoveryLinkForIdentity(ctx context.Context) IdentityAPIApiCreateRecoveryLinkForIdentityRequest {
-	return IdentityAPIApiCreateRecoveryLinkForIdentityRequest{
+func (a *IdentityApiService) CreateRecoveryLinkForIdentity(ctx context.Context) IdentityApiApiCreateRecoveryLinkForIdentityRequest {
+	return IdentityApiApiCreateRecoveryLinkForIdentityRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -810,7 +810,7 @@ func (a *IdentityAPIService) CreateRecoveryLinkForIdentity(ctx context.Context) 
  * Execute executes the request
  * @return RecoveryLinkForIdentity
  */
-func (a *IdentityAPIService) CreateRecoveryLinkForIdentityExecute(r IdentityAPIApiCreateRecoveryLinkForIdentityRequest) (*RecoveryLinkForIdentity, *http.Response, error) {
+func (a *IdentityApiService) CreateRecoveryLinkForIdentityExecute(r IdentityApiApiCreateRecoveryLinkForIdentityRequest) (*RecoveryLinkForIdentity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -820,7 +820,7 @@ func (a *IdentityAPIService) CreateRecoveryLinkForIdentityExecute(r IdentityAPIA
 		localVarReturnValue  *RecoveryLinkForIdentity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.CreateRecoveryLinkForIdentity")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.CreateRecoveryLinkForIdentity")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -931,13 +931,13 @@ func (a *IdentityAPIService) CreateRecoveryLinkForIdentityExecute(r IdentityAPIA
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiDeleteIdentityRequest struct {
+type IdentityApiApiDeleteIdentityRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 }
 
-func (r IdentityAPIApiDeleteIdentityRequest) Execute() (*http.Response, error) {
+func (r IdentityApiApiDeleteIdentityRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteIdentityExecute(r)
 }
 
@@ -949,10 +949,10 @@ This endpoint returns 204 when the identity was deleted or when the identity was
 assumed that is has been deleted already.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID is the identity's ID.
-  - @return IdentityAPIApiDeleteIdentityRequest
+  - @return IdentityApiApiDeleteIdentityRequest
 */
-func (a *IdentityAPIService) DeleteIdentity(ctx context.Context, id string) IdentityAPIApiDeleteIdentityRequest {
-	return IdentityAPIApiDeleteIdentityRequest{
+func (a *IdentityApiService) DeleteIdentity(ctx context.Context, id string) IdentityApiApiDeleteIdentityRequest {
+	return IdentityApiApiDeleteIdentityRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -962,7 +962,7 @@ func (a *IdentityAPIService) DeleteIdentity(ctx context.Context, id string) Iden
 /*
  * Execute executes the request
  */
-func (a *IdentityAPIService) DeleteIdentityExecute(r IdentityAPIApiDeleteIdentityRequest) (*http.Response, error) {
+func (a *IdentityApiService) DeleteIdentityExecute(r IdentityApiApiDeleteIdentityRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -971,7 +971,7 @@ func (a *IdentityAPIService) DeleteIdentityExecute(r IdentityAPIApiDeleteIdentit
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.DeleteIdentity")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.DeleteIdentity")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1059,14 +1059,14 @@ func (a *IdentityAPIService) DeleteIdentityExecute(r IdentityAPIApiDeleteIdentit
 	return localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiDeleteIdentityCredentialsRequest struct {
+type IdentityApiApiDeleteIdentityCredentialsRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 	type_      string
 }
 
-func (r IdentityAPIApiDeleteIdentityCredentialsRequest) Execute() (*http.Response, error) {
+func (r IdentityApiApiDeleteIdentityCredentialsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteIdentityCredentialsExecute(r)
 }
 
@@ -1078,10 +1078,10 @@ You can only delete second factor (aal2) credentials.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID is the identity's ID.
   - @param type_ Type is the type of credentials to be deleted. password CredentialsTypePassword oidc CredentialsTypeOIDC totp CredentialsTypeTOTP lookup_secret CredentialsTypeLookup webauthn CredentialsTypeWebAuthn code CredentialsTypeCodeAuth passkey CredentialsTypePasskey profile CredentialsTypeProfile link_recovery CredentialsTypeRecoveryLink  CredentialsTypeRecoveryLink is a special credential type linked to the link strategy (recovery flow).  It is not used within the credentials object itself. code_recovery CredentialsTypeRecoveryCode
-  - @return IdentityAPIApiDeleteIdentityCredentialsRequest
+  - @return IdentityApiApiDeleteIdentityCredentialsRequest
 */
-func (a *IdentityAPIService) DeleteIdentityCredentials(ctx context.Context, id string, type_ string) IdentityAPIApiDeleteIdentityCredentialsRequest {
-	return IdentityAPIApiDeleteIdentityCredentialsRequest{
+func (a *IdentityApiService) DeleteIdentityCredentials(ctx context.Context, id string, type_ string) IdentityApiApiDeleteIdentityCredentialsRequest {
+	return IdentityApiApiDeleteIdentityCredentialsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -1092,7 +1092,7 @@ func (a *IdentityAPIService) DeleteIdentityCredentials(ctx context.Context, id s
 /*
  * Execute executes the request
  */
-func (a *IdentityAPIService) DeleteIdentityCredentialsExecute(r IdentityAPIApiDeleteIdentityCredentialsRequest) (*http.Response, error) {
+func (a *IdentityApiService) DeleteIdentityCredentialsExecute(r IdentityApiApiDeleteIdentityCredentialsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -1101,7 +1101,7 @@ func (a *IdentityAPIService) DeleteIdentityCredentialsExecute(r IdentityAPIApiDe
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.DeleteIdentityCredentials")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.DeleteIdentityCredentials")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1190,13 +1190,13 @@ func (a *IdentityAPIService) DeleteIdentityCredentialsExecute(r IdentityAPIApiDe
 	return localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiDeleteIdentitySessionsRequest struct {
+type IdentityApiApiDeleteIdentitySessionsRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 }
 
-func (r IdentityAPIApiDeleteIdentitySessionsRequest) Execute() (*http.Response, error) {
+func (r IdentityApiApiDeleteIdentitySessionsRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DeleteIdentitySessionsExecute(r)
 }
 
@@ -1205,10 +1205,10 @@ func (r IdentityAPIApiDeleteIdentitySessionsRequest) Execute() (*http.Response, 
  * Calling this endpoint irrecoverably and permanently deletes and invalidates all sessions that belong to the given Identity.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID is the identity's ID.
- * @return IdentityAPIApiDeleteIdentitySessionsRequest
+ * @return IdentityApiApiDeleteIdentitySessionsRequest
  */
-func (a *IdentityAPIService) DeleteIdentitySessions(ctx context.Context, id string) IdentityAPIApiDeleteIdentitySessionsRequest {
-	return IdentityAPIApiDeleteIdentitySessionsRequest{
+func (a *IdentityApiService) DeleteIdentitySessions(ctx context.Context, id string) IdentityApiApiDeleteIdentitySessionsRequest {
+	return IdentityApiApiDeleteIdentitySessionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -1218,7 +1218,7 @@ func (a *IdentityAPIService) DeleteIdentitySessions(ctx context.Context, id stri
 /*
  * Execute executes the request
  */
-func (a *IdentityAPIService) DeleteIdentitySessionsExecute(r IdentityAPIApiDeleteIdentitySessionsRequest) (*http.Response, error) {
+func (a *IdentityApiService) DeleteIdentitySessionsExecute(r IdentityApiApiDeleteIdentitySessionsRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -1227,7 +1227,7 @@ func (a *IdentityAPIService) DeleteIdentitySessionsExecute(r IdentityAPIApiDelet
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.DeleteIdentitySessions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.DeleteIdentitySessions")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1335,13 +1335,13 @@ func (a *IdentityAPIService) DeleteIdentitySessionsExecute(r IdentityAPIApiDelet
 	return localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiDisableSessionRequest struct {
+type IdentityApiApiDisableSessionRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 }
 
-func (r IdentityAPIApiDisableSessionRequest) Execute() (*http.Response, error) {
+func (r IdentityApiApiDisableSessionRequest) Execute() (*http.Response, error) {
 	return r.ApiService.DisableSessionExecute(r)
 }
 
@@ -1350,10 +1350,10 @@ func (r IdentityAPIApiDisableSessionRequest) Execute() (*http.Response, error) {
  * Calling this endpoint deactivates the specified session. Session data is not deleted.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID is the session's ID.
- * @return IdentityAPIApiDisableSessionRequest
+ * @return IdentityApiApiDisableSessionRequest
  */
-func (a *IdentityAPIService) DisableSession(ctx context.Context, id string) IdentityAPIApiDisableSessionRequest {
-	return IdentityAPIApiDisableSessionRequest{
+func (a *IdentityApiService) DisableSession(ctx context.Context, id string) IdentityApiApiDisableSessionRequest {
+	return IdentityApiApiDisableSessionRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -1363,7 +1363,7 @@ func (a *IdentityAPIService) DisableSession(ctx context.Context, id string) Iden
 /*
  * Execute executes the request
  */
-func (a *IdentityAPIService) DisableSessionExecute(r IdentityAPIApiDisableSessionRequest) (*http.Response, error) {
+func (a *IdentityApiService) DisableSessionExecute(r IdentityApiApiDisableSessionRequest) (*http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
@@ -1372,7 +1372,7 @@ func (a *IdentityAPIService) DisableSessionExecute(r IdentityAPIApiDisableSessio
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.DisableSession")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.DisableSession")
 	if err != nil {
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1470,13 +1470,13 @@ func (a *IdentityAPIService) DisableSessionExecute(r IdentityAPIApiDisableSessio
 	return localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiExtendSessionRequest struct {
+type IdentityApiApiExtendSessionRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 }
 
-func (r IdentityAPIApiExtendSessionRequest) Execute() (*Session, *http.Response, error) {
+func (r IdentityApiApiExtendSessionRequest) Execute() (*Session, *http.Response, error) {
 	return r.ApiService.ExtendSessionExecute(r)
 }
 
@@ -1489,10 +1489,10 @@ will only extend the session after the specified time has passed.
 Retrieve the session ID from the `/sessions/whoami` endpoint / `toSession` SDK method.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID is the session's ID.
-  - @return IdentityAPIApiExtendSessionRequest
+  - @return IdentityApiApiExtendSessionRequest
 */
-func (a *IdentityAPIService) ExtendSession(ctx context.Context, id string) IdentityAPIApiExtendSessionRequest {
-	return IdentityAPIApiExtendSessionRequest{
+func (a *IdentityApiService) ExtendSession(ctx context.Context, id string) IdentityApiApiExtendSessionRequest {
+	return IdentityApiApiExtendSessionRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -1503,7 +1503,7 @@ func (a *IdentityAPIService) ExtendSession(ctx context.Context, id string) Ident
  * Execute executes the request
  * @return Session
  */
-func (a *IdentityAPIService) ExtendSessionExecute(r IdentityAPIApiExtendSessionRequest) (*Session, *http.Response, error) {
+func (a *IdentityApiService) ExtendSessionExecute(r IdentityApiApiExtendSessionRequest) (*Session, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -1513,7 +1513,7 @@ func (a *IdentityAPIService) ExtendSessionExecute(r IdentityAPIApiExtendSessionR
 		localVarReturnValue  *Session
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.ExtendSession")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.ExtendSession")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1620,19 +1620,19 @@ func (a *IdentityAPIService) ExtendSessionExecute(r IdentityAPIApiExtendSessionR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiGetIdentityRequest struct {
+type IdentityApiApiGetIdentityRequest struct {
 	ctx               context.Context
-	ApiService        IdentityAPI
+	ApiService        IdentityApi
 	id                string
 	includeCredential *[]string
 }
 
-func (r IdentityAPIApiGetIdentityRequest) IncludeCredential(includeCredential []string) IdentityAPIApiGetIdentityRequest {
+func (r IdentityApiApiGetIdentityRequest) IncludeCredential(includeCredential []string) IdentityApiApiGetIdentityRequest {
 	r.includeCredential = &includeCredential
 	return r
 }
 
-func (r IdentityAPIApiGetIdentityRequest) Execute() (*Identity, *http.Response, error) {
+func (r IdentityApiApiGetIdentityRequest) Execute() (*Identity, *http.Response, error) {
 	return r.ApiService.GetIdentityExecute(r)
 }
 
@@ -1643,10 +1643,10 @@ func (r IdentityAPIApiGetIdentityRequest) Execute() (*Identity, *http.Response, 
 include credentials (e.g. social sign in connections) in the response by using the `include_credential` query parameter.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID must be set to the ID of identity you want to get
-  - @return IdentityAPIApiGetIdentityRequest
+  - @return IdentityApiApiGetIdentityRequest
 */
-func (a *IdentityAPIService) GetIdentity(ctx context.Context, id string) IdentityAPIApiGetIdentityRequest {
-	return IdentityAPIApiGetIdentityRequest{
+func (a *IdentityApiService) GetIdentity(ctx context.Context, id string) IdentityApiApiGetIdentityRequest {
+	return IdentityApiApiGetIdentityRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -1657,7 +1657,7 @@ func (a *IdentityAPIService) GetIdentity(ctx context.Context, id string) Identit
  * Execute executes the request
  * @return Identity
  */
-func (a *IdentityAPIService) GetIdentityExecute(r IdentityAPIApiGetIdentityRequest) (*Identity, *http.Response, error) {
+func (a *IdentityApiService) GetIdentityExecute(r IdentityApiApiGetIdentityRequest) (*Identity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1667,7 +1667,7 @@ func (a *IdentityAPIService) GetIdentityExecute(r IdentityAPIApiGetIdentityReque
 		localVarReturnValue  *Identity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.GetIdentity")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.GetIdentity")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1775,13 +1775,13 @@ func (a *IdentityAPIService) GetIdentityExecute(r IdentityAPIApiGetIdentityReque
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiGetIdentitySchemaRequest struct {
+type IdentityApiApiGetIdentitySchemaRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 }
 
-func (r IdentityAPIApiGetIdentitySchemaRequest) Execute() (map[string]interface{}, *http.Response, error) {
+func (r IdentityApiApiGetIdentitySchemaRequest) Execute() (map[string]interface{}, *http.Response, error) {
 	return r.ApiService.GetIdentitySchemaExecute(r)
 }
 
@@ -1790,10 +1790,10 @@ func (r IdentityAPIApiGetIdentitySchemaRequest) Execute() (map[string]interface{
  * Return a specific identity schema.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID must be set to the ID of schema you want to get
- * @return IdentityAPIApiGetIdentitySchemaRequest
+ * @return IdentityApiApiGetIdentitySchemaRequest
  */
-func (a *IdentityAPIService) GetIdentitySchema(ctx context.Context, id string) IdentityAPIApiGetIdentitySchemaRequest {
-	return IdentityAPIApiGetIdentitySchemaRequest{
+func (a *IdentityApiService) GetIdentitySchema(ctx context.Context, id string) IdentityApiApiGetIdentitySchemaRequest {
+	return IdentityApiApiGetIdentitySchemaRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -1804,7 +1804,7 @@ func (a *IdentityAPIService) GetIdentitySchema(ctx context.Context, id string) I
  * Execute executes the request
  * @return map[string]interface{}
  */
-func (a *IdentityAPIService) GetIdentitySchemaExecute(r IdentityAPIApiGetIdentitySchemaRequest) (map[string]interface{}, *http.Response, error) {
+func (a *IdentityApiService) GetIdentitySchemaExecute(r IdentityApiApiGetIdentitySchemaRequest) (map[string]interface{}, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1814,7 +1814,7 @@ func (a *IdentityAPIService) GetIdentitySchemaExecute(r IdentityAPIApiGetIdentit
 		localVarReturnValue  map[string]interface{}
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.GetIdentitySchema")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.GetIdentitySchema")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -1897,19 +1897,19 @@ func (a *IdentityAPIService) GetIdentitySchemaExecute(r IdentityAPIApiGetIdentit
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiGetSessionRequest struct {
+type IdentityApiApiGetSessionRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 	expand     *[]string
 }
 
-func (r IdentityAPIApiGetSessionRequest) Expand(expand []string) IdentityAPIApiGetSessionRequest {
+func (r IdentityApiApiGetSessionRequest) Expand(expand []string) IdentityApiApiGetSessionRequest {
 	r.expand = &expand
 	return r
 }
 
-func (r IdentityAPIApiGetSessionRequest) Execute() (*Session, *http.Response, error) {
+func (r IdentityApiApiGetSessionRequest) Execute() (*Session, *http.Response, error) {
 	return r.ApiService.GetSessionExecute(r)
 }
 
@@ -1920,10 +1920,10 @@ func (r IdentityAPIApiGetSessionRequest) Execute() (*Session, *http.Response, er
 Getting a session object with all specified expandables that exist in an administrative context.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID is the session's ID.
-  - @return IdentityAPIApiGetSessionRequest
+  - @return IdentityApiApiGetSessionRequest
 */
-func (a *IdentityAPIService) GetSession(ctx context.Context, id string) IdentityAPIApiGetSessionRequest {
-	return IdentityAPIApiGetSessionRequest{
+func (a *IdentityApiService) GetSession(ctx context.Context, id string) IdentityApiApiGetSessionRequest {
+	return IdentityApiApiGetSessionRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -1934,7 +1934,7 @@ func (a *IdentityAPIService) GetSession(ctx context.Context, id string) Identity
  * Execute executes the request
  * @return Session
  */
-func (a *IdentityAPIService) GetSessionExecute(r IdentityAPIApiGetSessionRequest) (*Session, *http.Response, error) {
+func (a *IdentityApiService) GetSessionExecute(r IdentityApiApiGetSessionRequest) (*Session, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -1944,7 +1944,7 @@ func (a *IdentityAPIService) GetSessionExecute(r IdentityAPIApiGetSessionRequest
 		localVarReturnValue  *Session
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.GetSession")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.GetSession")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2052,9 +2052,9 @@ func (a *IdentityAPIService) GetSessionExecute(r IdentityAPIApiGetSessionRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiListIdentitiesRequest struct {
+type IdentityApiApiListIdentitiesRequest struct {
 	ctx                                 context.Context
-	ApiService                          IdentityAPI
+	ApiService                          IdentityApi
 	perPage                             *int64
 	page                                *int64
 	pageSize                            *int64
@@ -2066,44 +2066,44 @@ type IdentityAPIApiListIdentitiesRequest struct {
 	includeCredential                   *[]string
 }
 
-func (r IdentityAPIApiListIdentitiesRequest) PerPage(perPage int64) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) PerPage(perPage int64) IdentityApiApiListIdentitiesRequest {
 	r.perPage = &perPage
 	return r
 }
-func (r IdentityAPIApiListIdentitiesRequest) Page(page int64) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) Page(page int64) IdentityApiApiListIdentitiesRequest {
 	r.page = &page
 	return r
 }
-func (r IdentityAPIApiListIdentitiesRequest) PageSize(pageSize int64) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) PageSize(pageSize int64) IdentityApiApiListIdentitiesRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r IdentityAPIApiListIdentitiesRequest) PageToken(pageToken string) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) PageToken(pageToken string) IdentityApiApiListIdentitiesRequest {
 	r.pageToken = &pageToken
 	return r
 }
-func (r IdentityAPIApiListIdentitiesRequest) Consistency(consistency string) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) Consistency(consistency string) IdentityApiApiListIdentitiesRequest {
 	r.consistency = &consistency
 	return r
 }
-func (r IdentityAPIApiListIdentitiesRequest) Ids(ids []string) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) Ids(ids []string) IdentityApiApiListIdentitiesRequest {
 	r.ids = &ids
 	return r
 }
-func (r IdentityAPIApiListIdentitiesRequest) CredentialsIdentifier(credentialsIdentifier string) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) CredentialsIdentifier(credentialsIdentifier string) IdentityApiApiListIdentitiesRequest {
 	r.credentialsIdentifier = &credentialsIdentifier
 	return r
 }
-func (r IdentityAPIApiListIdentitiesRequest) PreviewCredentialsIdentifierSimilar(previewCredentialsIdentifierSimilar string) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) PreviewCredentialsIdentifierSimilar(previewCredentialsIdentifierSimilar string) IdentityApiApiListIdentitiesRequest {
 	r.previewCredentialsIdentifierSimilar = &previewCredentialsIdentifierSimilar
 	return r
 }
-func (r IdentityAPIApiListIdentitiesRequest) IncludeCredential(includeCredential []string) IdentityAPIApiListIdentitiesRequest {
+func (r IdentityApiApiListIdentitiesRequest) IncludeCredential(includeCredential []string) IdentityApiApiListIdentitiesRequest {
 	r.includeCredential = &includeCredential
 	return r
 }
 
-func (r IdentityAPIApiListIdentitiesRequest) Execute() ([]Identity, *http.Response, error) {
+func (r IdentityApiApiListIdentitiesRequest) Execute() ([]Identity, *http.Response, error) {
 	return r.ApiService.ListIdentitiesExecute(r)
 }
 
@@ -2111,10 +2111,10 @@ func (r IdentityAPIApiListIdentitiesRequest) Execute() ([]Identity, *http.Respon
  * ListIdentities List Identities
  * Lists all [identities](https://www.ory.sh/docs/kratos/concepts/identity-user-model) in the system.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return IdentityAPIApiListIdentitiesRequest
+ * @return IdentityApiApiListIdentitiesRequest
  */
-func (a *IdentityAPIService) ListIdentities(ctx context.Context) IdentityAPIApiListIdentitiesRequest {
-	return IdentityAPIApiListIdentitiesRequest{
+func (a *IdentityApiService) ListIdentities(ctx context.Context) IdentityApiApiListIdentitiesRequest {
+	return IdentityApiApiListIdentitiesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2124,7 +2124,7 @@ func (a *IdentityAPIService) ListIdentities(ctx context.Context) IdentityAPIApiL
  * Execute executes the request
  * @return []Identity
  */
-func (a *IdentityAPIService) ListIdentitiesExecute(r IdentityAPIApiListIdentitiesRequest) ([]Identity, *http.Response, error) {
+func (a *IdentityApiService) ListIdentitiesExecute(r IdentityApiApiListIdentitiesRequest) ([]Identity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2134,7 +2134,7 @@ func (a *IdentityAPIService) ListIdentitiesExecute(r IdentityAPIApiListIdentitie
 		localVarReturnValue  []Identity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.ListIdentities")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.ListIdentities")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2263,33 +2263,33 @@ func (a *IdentityAPIService) ListIdentitiesExecute(r IdentityAPIApiListIdentitie
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiListIdentitySchemasRequest struct {
+type IdentityApiApiListIdentitySchemasRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	perPage    *int64
 	page       *int64
 	pageSize   *int64
 	pageToken  *string
 }
 
-func (r IdentityAPIApiListIdentitySchemasRequest) PerPage(perPage int64) IdentityAPIApiListIdentitySchemasRequest {
+func (r IdentityApiApiListIdentitySchemasRequest) PerPage(perPage int64) IdentityApiApiListIdentitySchemasRequest {
 	r.perPage = &perPage
 	return r
 }
-func (r IdentityAPIApiListIdentitySchemasRequest) Page(page int64) IdentityAPIApiListIdentitySchemasRequest {
+func (r IdentityApiApiListIdentitySchemasRequest) Page(page int64) IdentityApiApiListIdentitySchemasRequest {
 	r.page = &page
 	return r
 }
-func (r IdentityAPIApiListIdentitySchemasRequest) PageSize(pageSize int64) IdentityAPIApiListIdentitySchemasRequest {
+func (r IdentityApiApiListIdentitySchemasRequest) PageSize(pageSize int64) IdentityApiApiListIdentitySchemasRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r IdentityAPIApiListIdentitySchemasRequest) PageToken(pageToken string) IdentityAPIApiListIdentitySchemasRequest {
+func (r IdentityApiApiListIdentitySchemasRequest) PageToken(pageToken string) IdentityApiApiListIdentitySchemasRequest {
 	r.pageToken = &pageToken
 	return r
 }
 
-func (r IdentityAPIApiListIdentitySchemasRequest) Execute() ([]IdentitySchemaContainer, *http.Response, error) {
+func (r IdentityApiApiListIdentitySchemasRequest) Execute() ([]IdentitySchemaContainer, *http.Response, error) {
 	return r.ApiService.ListIdentitySchemasExecute(r)
 }
 
@@ -2297,10 +2297,10 @@ func (r IdentityAPIApiListIdentitySchemasRequest) Execute() ([]IdentitySchemaCon
  * ListIdentitySchemas Get all Identity Schemas
  * Returns a list of all identity schemas currently in use.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return IdentityAPIApiListIdentitySchemasRequest
+ * @return IdentityApiApiListIdentitySchemasRequest
  */
-func (a *IdentityAPIService) ListIdentitySchemas(ctx context.Context) IdentityAPIApiListIdentitySchemasRequest {
-	return IdentityAPIApiListIdentitySchemasRequest{
+func (a *IdentityApiService) ListIdentitySchemas(ctx context.Context) IdentityApiApiListIdentitySchemasRequest {
+	return IdentityApiApiListIdentitySchemasRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2310,7 +2310,7 @@ func (a *IdentityAPIService) ListIdentitySchemas(ctx context.Context) IdentityAP
  * Execute executes the request
  * @return []IdentitySchemaContainer
  */
-func (a *IdentityAPIService) ListIdentitySchemasExecute(r IdentityAPIApiListIdentitySchemasRequest) ([]IdentitySchemaContainer, *http.Response, error) {
+func (a *IdentityApiService) ListIdentitySchemasExecute(r IdentityApiApiListIdentitySchemasRequest) ([]IdentitySchemaContainer, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2320,7 +2320,7 @@ func (a *IdentityAPIService) ListIdentitySchemasExecute(r IdentityAPIApiListIden
 		localVarReturnValue  []IdentitySchemaContainer
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.ListIdentitySchemas")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.ListIdentitySchemas")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2404,9 +2404,9 @@ func (a *IdentityAPIService) ListIdentitySchemasExecute(r IdentityAPIApiListIden
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiListIdentitySessionsRequest struct {
+type IdentityApiApiListIdentitySessionsRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 	perPage    *int64
 	page       *int64
@@ -2415,28 +2415,28 @@ type IdentityAPIApiListIdentitySessionsRequest struct {
 	active     *bool
 }
 
-func (r IdentityAPIApiListIdentitySessionsRequest) PerPage(perPage int64) IdentityAPIApiListIdentitySessionsRequest {
+func (r IdentityApiApiListIdentitySessionsRequest) PerPage(perPage int64) IdentityApiApiListIdentitySessionsRequest {
 	r.perPage = &perPage
 	return r
 }
-func (r IdentityAPIApiListIdentitySessionsRequest) Page(page int64) IdentityAPIApiListIdentitySessionsRequest {
+func (r IdentityApiApiListIdentitySessionsRequest) Page(page int64) IdentityApiApiListIdentitySessionsRequest {
 	r.page = &page
 	return r
 }
-func (r IdentityAPIApiListIdentitySessionsRequest) PageSize(pageSize int64) IdentityAPIApiListIdentitySessionsRequest {
+func (r IdentityApiApiListIdentitySessionsRequest) PageSize(pageSize int64) IdentityApiApiListIdentitySessionsRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r IdentityAPIApiListIdentitySessionsRequest) PageToken(pageToken string) IdentityAPIApiListIdentitySessionsRequest {
+func (r IdentityApiApiListIdentitySessionsRequest) PageToken(pageToken string) IdentityApiApiListIdentitySessionsRequest {
 	r.pageToken = &pageToken
 	return r
 }
-func (r IdentityAPIApiListIdentitySessionsRequest) Active(active bool) IdentityAPIApiListIdentitySessionsRequest {
+func (r IdentityApiApiListIdentitySessionsRequest) Active(active bool) IdentityApiApiListIdentitySessionsRequest {
 	r.active = &active
 	return r
 }
 
-func (r IdentityAPIApiListIdentitySessionsRequest) Execute() ([]Session, *http.Response, error) {
+func (r IdentityApiApiListIdentitySessionsRequest) Execute() ([]Session, *http.Response, error) {
 	return r.ApiService.ListIdentitySessionsExecute(r)
 }
 
@@ -2445,10 +2445,10 @@ func (r IdentityAPIApiListIdentitySessionsRequest) Execute() ([]Session, *http.R
  * This endpoint returns all sessions that belong to the given Identity.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID is the identity's ID.
- * @return IdentityAPIApiListIdentitySessionsRequest
+ * @return IdentityApiApiListIdentitySessionsRequest
  */
-func (a *IdentityAPIService) ListIdentitySessions(ctx context.Context, id string) IdentityAPIApiListIdentitySessionsRequest {
-	return IdentityAPIApiListIdentitySessionsRequest{
+func (a *IdentityApiService) ListIdentitySessions(ctx context.Context, id string) IdentityApiApiListIdentitySessionsRequest {
+	return IdentityApiApiListIdentitySessionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -2459,7 +2459,7 @@ func (a *IdentityAPIService) ListIdentitySessions(ctx context.Context, id string
  * Execute executes the request
  * @return []Session
  */
-func (a *IdentityAPIService) ListIdentitySessionsExecute(r IdentityAPIApiListIdentitySessionsRequest) ([]Session, *http.Response, error) {
+func (a *IdentityApiService) ListIdentitySessionsExecute(r IdentityApiApiListIdentitySessionsRequest) ([]Session, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2469,7 +2469,7 @@ func (a *IdentityAPIService) ListIdentitySessionsExecute(r IdentityAPIApiListIde
 		localVarReturnValue  []Session
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.ListIdentitySessions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.ListIdentitySessions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2591,33 +2591,33 @@ func (a *IdentityAPIService) ListIdentitySessionsExecute(r IdentityAPIApiListIde
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiListSessionsRequest struct {
+type IdentityApiApiListSessionsRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	pageSize   *int64
 	pageToken  *string
 	active     *bool
 	expand     *[]string
 }
 
-func (r IdentityAPIApiListSessionsRequest) PageSize(pageSize int64) IdentityAPIApiListSessionsRequest {
+func (r IdentityApiApiListSessionsRequest) PageSize(pageSize int64) IdentityApiApiListSessionsRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r IdentityAPIApiListSessionsRequest) PageToken(pageToken string) IdentityAPIApiListSessionsRequest {
+func (r IdentityApiApiListSessionsRequest) PageToken(pageToken string) IdentityApiApiListSessionsRequest {
 	r.pageToken = &pageToken
 	return r
 }
-func (r IdentityAPIApiListSessionsRequest) Active(active bool) IdentityAPIApiListSessionsRequest {
+func (r IdentityApiApiListSessionsRequest) Active(active bool) IdentityApiApiListSessionsRequest {
 	r.active = &active
 	return r
 }
-func (r IdentityAPIApiListSessionsRequest) Expand(expand []string) IdentityAPIApiListSessionsRequest {
+func (r IdentityApiApiListSessionsRequest) Expand(expand []string) IdentityApiApiListSessionsRequest {
 	r.expand = &expand
 	return r
 }
 
-func (r IdentityAPIApiListSessionsRequest) Execute() ([]Session, *http.Response, error) {
+func (r IdentityApiApiListSessionsRequest) Execute() ([]Session, *http.Response, error) {
 	return r.ApiService.ListSessionsExecute(r)
 }
 
@@ -2625,10 +2625,10 @@ func (r IdentityAPIApiListSessionsRequest) Execute() ([]Session, *http.Response,
  * ListSessions List All Sessions
  * Listing all sessions that exist.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return IdentityAPIApiListSessionsRequest
+ * @return IdentityApiApiListSessionsRequest
  */
-func (a *IdentityAPIService) ListSessions(ctx context.Context) IdentityAPIApiListSessionsRequest {
-	return IdentityAPIApiListSessionsRequest{
+func (a *IdentityApiService) ListSessions(ctx context.Context) IdentityApiApiListSessionsRequest {
+	return IdentityApiApiListSessionsRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -2638,7 +2638,7 @@ func (a *IdentityAPIService) ListSessions(ctx context.Context) IdentityAPIApiLis
  * Execute executes the request
  * @return []Session
  */
-func (a *IdentityAPIService) ListSessionsExecute(r IdentityAPIApiListSessionsRequest) ([]Session, *http.Response, error) {
+func (a *IdentityApiService) ListSessionsExecute(r IdentityApiApiListSessionsRequest) ([]Session, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -2648,7 +2648,7 @@ func (a *IdentityAPIService) ListSessionsExecute(r IdentityAPIApiListSessionsReq
 		localVarReturnValue  []Session
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.ListSessions")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.ListSessions")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2764,19 +2764,19 @@ func (a *IdentityAPIService) ListSessionsExecute(r IdentityAPIApiListSessionsReq
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiPatchIdentityRequest struct {
+type IdentityApiApiPatchIdentityRequest struct {
 	ctx        context.Context
-	ApiService IdentityAPI
+	ApiService IdentityApi
 	id         string
 	jsonPatch  *[]JsonPatch
 }
 
-func (r IdentityAPIApiPatchIdentityRequest) JsonPatch(jsonPatch []JsonPatch) IdentityAPIApiPatchIdentityRequest {
+func (r IdentityApiApiPatchIdentityRequest) JsonPatch(jsonPatch []JsonPatch) IdentityApiApiPatchIdentityRequest {
 	r.jsonPatch = &jsonPatch
 	return r
 }
 
-func (r IdentityAPIApiPatchIdentityRequest) Execute() (*Identity, *http.Response, error) {
+func (r IdentityApiApiPatchIdentityRequest) Execute() (*Identity, *http.Response, error) {
 	return r.ApiService.PatchIdentityExecute(r)
 }
 
@@ -2787,10 +2787,10 @@ func (r IdentityAPIApiPatchIdentityRequest) Execute() (*Identity, *http.Response
 The fields `id`, `stateChangedAt` and `credentials` can not be updated using this method.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID must be set to the ID of identity you want to update
-  - @return IdentityAPIApiPatchIdentityRequest
+  - @return IdentityApiApiPatchIdentityRequest
 */
-func (a *IdentityAPIService) PatchIdentity(ctx context.Context, id string) IdentityAPIApiPatchIdentityRequest {
-	return IdentityAPIApiPatchIdentityRequest{
+func (a *IdentityApiService) PatchIdentity(ctx context.Context, id string) IdentityApiApiPatchIdentityRequest {
+	return IdentityApiApiPatchIdentityRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -2801,7 +2801,7 @@ func (a *IdentityAPIService) PatchIdentity(ctx context.Context, id string) Ident
  * Execute executes the request
  * @return Identity
  */
-func (a *IdentityAPIService) PatchIdentityExecute(r IdentityAPIApiPatchIdentityRequest) (*Identity, *http.Response, error) {
+func (a *IdentityApiService) PatchIdentityExecute(r IdentityApiApiPatchIdentityRequest) (*Identity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPatch
 		localVarPostBody     interface{}
@@ -2811,7 +2811,7 @@ func (a *IdentityAPIService) PatchIdentityExecute(r IdentityAPIApiPatchIdentityR
 		localVarReturnValue  *Identity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.PatchIdentity")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.PatchIdentity")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -2930,19 +2930,19 @@ func (a *IdentityAPIService) PatchIdentityExecute(r IdentityAPIApiPatchIdentityR
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type IdentityAPIApiUpdateIdentityRequest struct {
+type IdentityApiApiUpdateIdentityRequest struct {
 	ctx                context.Context
-	ApiService         IdentityAPI
+	ApiService         IdentityApi
 	id                 string
 	updateIdentityBody *UpdateIdentityBody
 }
 
-func (r IdentityAPIApiUpdateIdentityRequest) UpdateIdentityBody(updateIdentityBody UpdateIdentityBody) IdentityAPIApiUpdateIdentityRequest {
+func (r IdentityApiApiUpdateIdentityRequest) UpdateIdentityBody(updateIdentityBody UpdateIdentityBody) IdentityApiApiUpdateIdentityRequest {
 	r.updateIdentityBody = &updateIdentityBody
 	return r
 }
 
-func (r IdentityAPIApiUpdateIdentityRequest) Execute() (*Identity, *http.Response, error) {
+func (r IdentityApiApiUpdateIdentityRequest) Execute() (*Identity, *http.Response, error) {
 	return r.ApiService.UpdateIdentityExecute(r)
 }
 
@@ -2953,10 +2953,10 @@ func (r IdentityAPIApiUpdateIdentityRequest) Execute() (*Identity, *http.Respons
 payload (except credentials) is expected. It is possible to update the identity's credentials as well.
   - @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
   - @param id ID must be set to the ID of identity you want to update
-  - @return IdentityAPIApiUpdateIdentityRequest
+  - @return IdentityApiApiUpdateIdentityRequest
 */
-func (a *IdentityAPIService) UpdateIdentity(ctx context.Context, id string) IdentityAPIApiUpdateIdentityRequest {
-	return IdentityAPIApiUpdateIdentityRequest{
+func (a *IdentityApiService) UpdateIdentity(ctx context.Context, id string) IdentityApiApiUpdateIdentityRequest {
+	return IdentityApiApiUpdateIdentityRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -2967,7 +2967,7 @@ func (a *IdentityAPIService) UpdateIdentity(ctx context.Context, id string) Iden
  * Execute executes the request
  * @return Identity
  */
-func (a *IdentityAPIService) UpdateIdentityExecute(r IdentityAPIApiUpdateIdentityRequest) (*Identity, *http.Response, error) {
+func (a *IdentityApiService) UpdateIdentityExecute(r IdentityApiApiUpdateIdentityRequest) (*Identity, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPut
 		localVarPostBody     interface{}
@@ -2977,7 +2977,7 @@ func (a *IdentityAPIService) UpdateIdentityExecute(r IdentityAPIApiUpdateIdentit
 		localVarReturnValue  *Identity
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityAPIService.UpdateIdentity")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "IdentityApiService.UpdateIdentity")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}

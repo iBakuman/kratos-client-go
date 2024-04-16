@@ -12,7 +12,6 @@
 package client
 
 import (
-	_ "bytes"
 	"encoding/json"
 	"fmt"
 )

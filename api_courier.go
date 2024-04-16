@@ -25,48 +25,48 @@ var (
 	_ context.Context
 )
 
-type CourierAPI interface {
+type CourierApi interface {
 
 	/*
 	 * GetCourierMessage Get a Message
 	 * Gets a specific messages by the given ID.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 	 * @param id MessageID is the ID of the message.
-	 * @return CourierAPIApiGetCourierMessageRequest
+	 * @return CourierApiApiGetCourierMessageRequest
 	 */
-	GetCourierMessage(ctx context.Context, id string) CourierAPIApiGetCourierMessageRequest
+	GetCourierMessage(ctx context.Context, id string) CourierApiApiGetCourierMessageRequest
 
 	/*
 	 * GetCourierMessageExecute executes the request
 	 * @return Message
 	 */
-	GetCourierMessageExecute(r CourierAPIApiGetCourierMessageRequest) (*Message, *http.Response, error)
+	GetCourierMessageExecute(r CourierApiApiGetCourierMessageRequest) (*Message, *http.Response, error)
 
 	/*
 	 * ListCourierMessages List Messages
 	 * Lists all messages by given status and recipient.
 	 * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-	 * @return CourierAPIApiListCourierMessagesRequest
+	 * @return CourierApiApiListCourierMessagesRequest
 	 */
-	ListCourierMessages(ctx context.Context) CourierAPIApiListCourierMessagesRequest
+	ListCourierMessages(ctx context.Context) CourierApiApiListCourierMessagesRequest
 
 	/*
 	 * ListCourierMessagesExecute executes the request
 	 * @return []Message
 	 */
-	ListCourierMessagesExecute(r CourierAPIApiListCourierMessagesRequest) ([]Message, *http.Response, error)
+	ListCourierMessagesExecute(r CourierApiApiListCourierMessagesRequest) ([]Message, *http.Response, error)
 }
 
-// CourierAPIService CourierAPI service
-type CourierAPIService service
+// CourierApiService CourierApi service
+type CourierApiService service
 
-type CourierAPIApiGetCourierMessageRequest struct {
+type CourierApiApiGetCourierMessageRequest struct {
 	ctx        context.Context
-	ApiService CourierAPI
+	ApiService CourierApi
 	id         string
 }
 
-func (r CourierAPIApiGetCourierMessageRequest) Execute() (*Message, *http.Response, error) {
+func (r CourierApiApiGetCourierMessageRequest) Execute() (*Message, *http.Response, error) {
 	return r.ApiService.GetCourierMessageExecute(r)
 }
 
@@ -75,10 +75,10 @@ func (r CourierAPIApiGetCourierMessageRequest) Execute() (*Message, *http.Respon
  * Gets a specific messages by the given ID.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id MessageID is the ID of the message.
- * @return CourierAPIApiGetCourierMessageRequest
+ * @return CourierApiApiGetCourierMessageRequest
  */
-func (a *CourierAPIService) GetCourierMessage(ctx context.Context, id string) CourierAPIApiGetCourierMessageRequest {
-	return CourierAPIApiGetCourierMessageRequest{
+func (a *CourierApiService) GetCourierMessage(ctx context.Context, id string) CourierApiApiGetCourierMessageRequest {
+	return CourierApiApiGetCourierMessageRequest{
 		ApiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -89,7 +89,7 @@ func (a *CourierAPIService) GetCourierMessage(ctx context.Context, id string) Co
  * Execute executes the request
  * @return Message
  */
-func (a *CourierAPIService) GetCourierMessageExecute(r CourierAPIApiGetCourierMessageRequest) (*Message, *http.Response, error) {
+func (a *CourierApiService) GetCourierMessageExecute(r CourierApiApiGetCourierMessageRequest) (*Message, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -99,7 +99,7 @@ func (a *CourierAPIService) GetCourierMessageExecute(r CourierAPIApiGetCourierMe
 		localVarReturnValue  *Message
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CourierAPIService.GetCourierMessage")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CourierApiService.GetCourierMessage")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
@@ -196,33 +196,33 @@ func (a *CourierAPIService) GetCourierMessageExecute(r CourierAPIApiGetCourierMe
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type CourierAPIApiListCourierMessagesRequest struct {
+type CourierApiApiListCourierMessagesRequest struct {
 	ctx        context.Context
-	ApiService CourierAPI
+	ApiService CourierApi
 	pageSize   *int64
 	pageToken  *string
 	status     *CourierMessageStatus
 	recipient  *string
 }
 
-func (r CourierAPIApiListCourierMessagesRequest) PageSize(pageSize int64) CourierAPIApiListCourierMessagesRequest {
+func (r CourierApiApiListCourierMessagesRequest) PageSize(pageSize int64) CourierApiApiListCourierMessagesRequest {
 	r.pageSize = &pageSize
 	return r
 }
-func (r CourierAPIApiListCourierMessagesRequest) PageToken(pageToken string) CourierAPIApiListCourierMessagesRequest {
+func (r CourierApiApiListCourierMessagesRequest) PageToken(pageToken string) CourierApiApiListCourierMessagesRequest {
 	r.pageToken = &pageToken
 	return r
 }
-func (r CourierAPIApiListCourierMessagesRequest) Status(status CourierMessageStatus) CourierAPIApiListCourierMessagesRequest {
+func (r CourierApiApiListCourierMessagesRequest) Status(status CourierMessageStatus) CourierApiApiListCourierMessagesRequest {
 	r.status = &status
 	return r
 }
-func (r CourierAPIApiListCourierMessagesRequest) Recipient(recipient string) CourierAPIApiListCourierMessagesRequest {
+func (r CourierApiApiListCourierMessagesRequest) Recipient(recipient string) CourierApiApiListCourierMessagesRequest {
 	r.recipient = &recipient
 	return r
 }
 
-func (r CourierAPIApiListCourierMessagesRequest) Execute() ([]Message, *http.Response, error) {
+func (r CourierApiApiListCourierMessagesRequest) Execute() ([]Message, *http.Response, error) {
 	return r.ApiService.ListCourierMessagesExecute(r)
 }
 
@@ -230,10 +230,10 @@ func (r CourierAPIApiListCourierMessagesRequest) Execute() ([]Message, *http.Res
  * ListCourierMessages List Messages
  * Lists all messages by given status and recipient.
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @return CourierAPIApiListCourierMessagesRequest
+ * @return CourierApiApiListCourierMessagesRequest
  */
-func (a *CourierAPIService) ListCourierMessages(ctx context.Context) CourierAPIApiListCourierMessagesRequest {
-	return CourierAPIApiListCourierMessagesRequest{
+func (a *CourierApiService) ListCourierMessages(ctx context.Context) CourierApiApiListCourierMessagesRequest {
+	return CourierApiApiListCourierMessagesRequest{
 		ApiService: a,
 		ctx:        ctx,
 	}
@@ -243,7 +243,7 @@ func (a *CourierAPIService) ListCourierMessages(ctx context.Context) CourierAPIA
  * Execute executes the request
  * @return []Message
  */
-func (a *CourierAPIService) ListCourierMessagesExecute(r CourierAPIApiListCourierMessagesRequest) ([]Message, *http.Response, error) {
+func (a *CourierApiService) ListCourierMessagesExecute(r CourierApiApiListCourierMessagesRequest) ([]Message, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
@@ -253,7 +253,7 @@ func (a *CourierAPIService) ListCourierMessagesExecute(r CourierAPIApiListCourie
 		localVarReturnValue  []Message
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CourierAPIService.ListCourierMessages")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CourierApiService.ListCourierMessages")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
